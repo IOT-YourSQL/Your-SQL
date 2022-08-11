@@ -161,8 +161,8 @@ namespace WF1
             data_reader = cmd.ExecuteReader();
             while (data_reader.Read())
             {
-                form.col_list.Items.Add(data_reader.GetName(count++).ToString());
-                Console.WriteLine(count);
+                for(; count < data_reader.FieldCount; count++)
+                    form.col_list.Items.Add(data_reader.GetName(count).ToString());
             }
             data_reader.Close();
         }

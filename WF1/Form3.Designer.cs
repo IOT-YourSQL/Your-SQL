@@ -46,6 +46,7 @@ namespace WF1
             this.col_list.Name = "col_list";
             this.col_list.Size = new System.Drawing.Size(335, 160);
             this.col_list.TabIndex = 0;
+            this.col_list.SelectedIndexChanged += new System.EventHandler(this.col_list_SelectedIndexChanged);
             // 
             // col_text
             // 
@@ -72,6 +73,7 @@ namespace WF1
             this.alter_btn.TabIndex = 3;
             this.alter_btn.Text = "수정";
             this.alter_btn.UseVisualStyleBackColor = true;
+            this.alter_btn.Click += new System.EventHandler(this.alter_btn_Click);
             // 
             // del_btn
             // 
@@ -81,6 +83,7 @@ namespace WF1
             this.del_btn.TabIndex = 4;
             this.del_btn.Text = "삭제";
             this.del_btn.UseVisualStyleBackColor = true;
+            this.del_btn.Click += new System.EventHandler(this.del_btn_Click);
             // 
             // type_box
             // 

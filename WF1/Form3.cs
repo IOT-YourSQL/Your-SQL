@@ -39,5 +39,26 @@ namespace WF1
             col_text.Clear();
             type_box.Text = "";
         }
+
+        private void del_btn_Click(object sender, EventArgs e)
+        {
+            string query = "ALTER TABLE `bibidi`." + tbl_name + " DROP COLUMN " + col_text.Text.ToString();
+            Console.WriteLine(query);
+            DB_connect.getInst().Create_Table(query);
+            col_list.Items.Clear();
+            DB_connect.getInst().show_col(this);
+            col_text.Clear();
+            type_box.Text = "";
+        }
+
+        private void col_list_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            col_text.Text = col_list.Text;
+        }
+
+        private void alter_btn_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
