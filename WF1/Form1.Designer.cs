@@ -29,9 +29,9 @@ namespace WF1
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.trackBar1 = new System.Windows.Forms.TrackBar();
             this.Data_List = new System.Windows.Forms.ListView();
@@ -42,7 +42,7 @@ namespace WF1
             this.Create_Table_Btn = new System.Windows.Forms.ToolStripMenuItem();
             this.Drop_Table_Btn = new System.Windows.Forms.ToolStripMenuItem();
             this.저장ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.엑셀로저장ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.save_with_excel_Btn = new System.Windows.Forms.ToolStripMenuItem();
             this.iNFOToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.Table_name_Text = new System.Windows.Forms.ComboBox();
             this.show_table_Btn = new System.Windows.Forms.Label();
@@ -53,17 +53,17 @@ namespace WF1
             // 
             // chart1
             // 
-            chartArea4.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea4);
-            legend4.Name = "Legend1";
-            this.chart1.Legends.Add(legend4);
+            chartArea1.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.chart1.Legends.Add(legend1);
             this.chart1.Location = new System.Drawing.Point(559, 242);
             this.chart1.Name = "chart1";
             this.chart1.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.EarthTones;
-            series4.ChartArea = "ChartArea1";
-            series4.Legend = "Legend1";
-            series4.Name = "Series1";
-            this.chart1.Series.Add(series4);
+            series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            this.chart1.Series.Add(series1);
             this.chart1.Size = new System.Drawing.Size(417, 286);
             this.chart1.TabIndex = 4;
             this.chart1.Text = "chart1";
@@ -144,17 +144,16 @@ namespace WF1
             // 저장ToolStripMenuItem
             // 
             this.저장ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.엑셀로저장ToolStripMenuItem});
+            this.save_with_excel_Btn});
             this.저장ToolStripMenuItem.Name = "저장ToolStripMenuItem";
             this.저장ToolStripMenuItem.Size = new System.Drawing.Size(43, 20);
             this.저장ToolStripMenuItem.Text = "저장";
             // 
-            // 엑셀로저장ToolStripMenuItem
+            // save_with_excel_Btn
             // 
-            this.엑셀로저장ToolStripMenuItem.Name = "엑셀로저장ToolStripMenuItem";
-            this.엑셀로저장ToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
-            this.엑셀로저장ToolStripMenuItem.Text = "엑셀로 저장";
-            this.엑셀로저장ToolStripMenuItem.Click += new System.EventHandler(this.엑셀로저장ToolStripMenuItem_Click);
+            this.save_with_excel_Btn.Name = "save_with_excel_Btn";
+            this.save_with_excel_Btn.Size = new System.Drawing.Size(180, 22);
+            this.save_with_excel_Btn.Text = "엑셀로 저장";
             // 
             // iNFOToolStripMenuItem1
             // 
@@ -214,7 +213,7 @@ namespace WF1
         private System.Windows.Forms.Label Data_Read_Btn;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem 저장ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 엑셀로저장ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem save_with_excel_Btn;
         private System.Windows.Forms.ToolStripMenuItem iNFOToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem Create_Table_Btn;
         private System.Windows.Forms.ToolStripMenuItem Drop_Table_Btn;

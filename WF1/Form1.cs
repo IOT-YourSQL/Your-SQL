@@ -38,9 +38,6 @@ namespace WF1
             Init_list_view();
         }
 
-        private void 엑셀로저장ToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-        }
 
         private void Insert_Table_Btn_Click(object sender, EventArgs e)
         {
@@ -73,6 +70,5 @@ namespace WF1
             Init_list_view();
         }
 
-            
     }
 }

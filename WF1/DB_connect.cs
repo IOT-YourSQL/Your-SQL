@@ -132,7 +132,6 @@ namespace WF1
         }
         public void show_table(DB from)
         {
-            var list = new List<string>();
             from.Table_name_Text.Items.Clear();
             cmd.Connection = conn;
             cmd.CommandText = "SHOW TABLES";

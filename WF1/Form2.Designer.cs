@@ -105,6 +105,7 @@ namespace WF1
             // 
             // PK_Check
             // 
+            this.PK_Check.CheckOnClick = true;
             this.PK_Check.FormattingEnabled = true;
             this.PK_Check.Location = new System.Drawing.Point(36, 127);
             this.PK_Check.Name = "PK_Check";
