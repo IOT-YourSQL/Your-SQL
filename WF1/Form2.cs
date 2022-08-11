@@ -24,6 +24,7 @@ namespace WF1
         private void Add_Btn_Click(object sender, EventArgs e)
         {
             try{
+                
                 string sequence_add = sequence_text.Text.ToString() + " " 
                     + sequence_type_text.Text.ToString() + " not null,";
                 sequence_list.Add(sequence_add);
@@ -43,6 +44,9 @@ namespace WF1
                 sequence_list.Add("PRIMARY KEY(" + PK_Check.SelectedItem.ToString() + "))");
                 string query = String.Join("",sequence_list.ToArray());
                 DB_connect.getInst().Create_Table(query);
+                string insertQuery = "INSERT INTO " + Table_Text.Text.ToString() + "(" + PK_Check.SelectedItem.ToString() + ") VALUES(0)";
+                Console.WriteLine(insertQuery);
+                DB_connect.getInst().insert_Create_index(insertQuery);
                 Main_Form.show_table();
                 this.Close();
             }

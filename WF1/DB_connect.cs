@@ -117,6 +117,19 @@ namespace WF1
             }
             show_table(from);
         }
+        public void insert_Create_index(string query)
+        {
+            try{
+                cmd.Connection = conn;
+                cmd.CommandText = query;
+                cmd.ExecuteNonQuery();
+                Console.WriteLine("테이블 인덱스 생성 완료!");
+            }
+            catch (MySqlException e)
+            {
+                Console.WriteLine("테이블 인덱스 Error: " + e.Message);
+            }
+        }
         public void show_table(DB from)
         {
             var list = new List<string>();
