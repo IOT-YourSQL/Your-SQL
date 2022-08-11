@@ -16,7 +16,6 @@ namespace WF1
         {
             DB_connect db_connect = new DB_connect();
             db_connect.connection_DB();
-            Init_list_view();
         }
 
         private void Init_list_view()
@@ -33,7 +32,7 @@ namespace WF1
 
         private void refresh_Click(object sender, EventArgs e)
         {
-            Data_List.Items.Clear();
+            Data_List.Clear();
             Init_list_view();
         }
 
@@ -57,7 +56,8 @@ namespace WF1
 
         private void Drop_Table_Btn_Click(object sender, EventArgs e)
         {
-            DB_connect.getInst().Drop_Table(mStatus);
+            DB_connect.getInst().Drop_Table();
         }
+
     }
 }

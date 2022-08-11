@@ -42,29 +42,33 @@ namespace WF1
         }
         public void dataRoad(DB from)
         {
-            int count = 1;
+            from.Data_List.View = View.Details;
+            int col_count = 0;
+            var item_list = new ListViewItem();
             cmd.Connection = conn;
             cmd.CommandText = "select * from items order by num asc";
+            //cmd.CommandText = "select * from "+from.Table_name_Text.Text.ToString() + " order by num asc";
             cmd.CommandType = System.Data.CommandType.Text;
             data_reader = cmd.ExecuteReader();
             if (data_reader.HasRows)
             {
                 while (data_reader.Read())
                 {
-                    from.Data_List.Items.Add(new ListViewItem(new string[]
-                        {
-                            (count).ToString(),
-                            data_reader["name"].ToString(),
-                            data_reader["price"].ToString()
-                        }));
-                    count++;
+                    var items = new List<string>();
+                    for (; col_count < data_reader.FieldCount; col_count++)
+                    {
+                        from.Data_List.Columns.Add(data_reader.GetName(col_count).ToString());
+                    }
 
+                    Object[] item = new Object[data_reader.FieldCount];
+                    int fieldCount = data_reader.GetValues(item);
+                    for (int i = 0; i < fieldCount; i++)
+                    {
+                        items.Add(item[i].ToString());
+                    }
+                    item_list = new ListViewItem(items.ToArray());
+                    from.Data_List.Items.Add(item_list);
                 }
-
-                from.Data_List.Items[count - 2].Selected = true;
-                from.Data_List.Items[count - 2].Focused = true;
-                from.Data_List.Focus();
-                from.Data_List.EnsureVisible(count - 2);
             }
             else
             {
@@ -96,7 +100,7 @@ namespace WF1
                 Console.WriteLine("테이블 생성 Error: " + e.Message);
             }
         }
-        public void Drop_Table(Label label)
+        public void Drop_Table()
         {
             try
             {
@@ -104,11 +108,11 @@ namespace WF1
                 cmd.Connection = conn;
                 cmd.CommandText = query;
                 cmd.ExecuteNonQuery();
-                label.Text = "테이블 삭제 및 시퀀스 삭제 완료!";
+                Console.WriteLine("테이블 삭제 및 시퀀스 삭제 완료!");
             }
             catch (MySqlException e)
             {
-                label.Text = "테이블  Error :" + e.Message;
+                Console.WriteLine("테이블 삭제 Error: " + e.Message);
             }
         }
     }
