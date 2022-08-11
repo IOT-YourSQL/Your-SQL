@@ -13,7 +13,7 @@ namespace WF1
     public partial class Create_Table : Form
     {
         private List<string> sequence_list = new List<string>();
-        private static DB Main_Form = new DB();
+        private static DB Main_Form;
         public Create_Table(DB from)
         {
             InitializeComponent();
@@ -42,8 +42,8 @@ namespace WF1
                 sequence_list[0] = "create table " + Table_Text.Text.ToString() +"(";
                 sequence_list.Add("PRIMARY KEY(" + PK_Check.SelectedItem.ToString() + "))");
                 string query = String.Join("",sequence_list.ToArray());
-
                 DB_connect.getInst().Create_Table(query);
+                Main_Form.show_table();
                 this.Close();
             }
         }

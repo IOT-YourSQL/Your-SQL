@@ -100,11 +100,12 @@ namespace WF1
                 Console.WriteLine("테이블 생성 Error: " + e.Message);
             }
         }
-        public void Drop_Table()
+        public void Drop_Table(DB from)
         {
+            Console.WriteLine(from.Table_name_Text.Text.ToString());
             try
             {
-                string query = "drop table member";
+                string query = "drop table " + from.Table_name_Text.Text.ToString();
                 cmd.Connection = conn;
                 cmd.CommandText = query;
                 cmd.ExecuteNonQuery();
@@ -114,9 +115,11 @@ namespace WF1
             {
                 Console.WriteLine("테이블 삭제 Error: " + e.Message);
             }
+            show_table(from);
         }
         public void show_table(DB from)
         {
+            var list = new List<string>();
             from.Table_name_Text.Items.Clear();
             cmd.Connection = conn;
             cmd.CommandText = "SHOW TABLES";
@@ -124,9 +127,10 @@ namespace WF1
             data_reader = cmd.ExecuteReader();
 
             if (data_reader.HasRows)
-            {
+            { 
                 while (data_reader.Read())
                 {
+                    from.Table_name_Text.Text = data_reader.GetValue(0).ToString();
                     for (int col_count = 0; col_count < data_reader.FieldCount; col_count++)
                     {
                         from.Table_name_Text.Items.Add(data_reader.GetValue(col_count).ToString());

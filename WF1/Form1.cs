@@ -12,7 +12,6 @@ namespace WF1
 {
     public partial class DB : Form
     {
-        private static DB mInst;
         private void Form1_Load(object sender, EventArgs e)
         {
             DB_connect db_connect = new DB_connect();
@@ -59,26 +58,21 @@ namespace WF1
 
         private void Drop_Table_Btn_Click(object sender, EventArgs e)
         {
-            DB_connect.getInst().Drop_Table();
+            DB_connect.getInst().Drop_Table(this);
         }
-
-        public void show_table_Btn_Click(object sender, EventArgs e)
+        public void show_table()
         {
             DB_connect.getInst().show_table(this);
+        }
+        public void show_table_Btn_Click(object sender, EventArgs e)
+        {
+            show_table();
         }
         private void Table_name_Text_SelectionChanged(object sender, EventArgs e)
         {
             Init_list_view();
         }
 
-        public static DB getInst()
-        {
-            if(mInst == null)
-            {
-                mInst = new DB();
-            }
-            return mInst;
-        }
             
     }
 }
