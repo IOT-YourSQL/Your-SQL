@@ -44,7 +44,12 @@ namespace WF1
                 sequence_list.Add("PRIMARY KEY(" + PK_Check.SelectedItem.ToString() + "))");
                 string query = String.Join("",sequence_list.ToArray());
                 DB_connect.getInst().Create_Table(query);
-                string insertQuery = "INSERT INTO " + Table_Text.Text.ToString() + "(" + PK_Check.SelectedItem.ToString() + ") VALUES(0)";
+                string insertQuery = "INSERT INTO " + Table_Text.Text.ToString() + " VALUES(0";
+                for(int i=1; i<PK_Check.Items.Count; i++)
+                {
+                    insertQuery += ",0";
+                }
+                insertQuery += ")";
                 Console.WriteLine(insertQuery);
                 DB_connect.getInst().insert_Create_index(insertQuery);
                 Main_Form.show_table();
