@@ -13,10 +13,12 @@ namespace WF1
     public partial class Create_Table : Form
     {
         private List<string> sequence_list = new List<string>();
-        public Create_Table()
+        private static DB Main_Form = new DB();
+        public Create_Table(DB from)
         {
             InitializeComponent();
-            sequence_list.Add(" ");
+            sequence_list.Add("");
+            Main_Form = from;
         }
 
         private void Add_Btn_Click(object sender, EventArgs e)

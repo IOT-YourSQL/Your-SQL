@@ -12,10 +12,13 @@ namespace WF1
 {
     public partial class DB : Form
     {
+        private static DB mInst;
         private void Form1_Load(object sender, EventArgs e)
         {
             DB_connect db_connect = new DB_connect();
             db_connect.connection_DB();
+            DB_connect.getInst().show_table(this);
+            Table_name_Text.SelectedIndexChanged += new System.EventHandler(Table_name_Text_SelectionChanged);
         }
 
         private void Init_list_view()
@@ -49,7 +52,7 @@ namespace WF1
 
         private void Create_Table_Btn_Click(object sender, EventArgs e)
         {
-            Create_Table create_Table = new Create_Table();
+            Create_Table create_Table = new Create_Table(this);
             create_Table.Show();
             //DB_connect.getInst().Create_Table(mStatus);
         }
@@ -59,5 +62,23 @@ namespace WF1
             DB_connect.getInst().Drop_Table();
         }
 
+        public void show_table_Btn_Click(object sender, EventArgs e)
+        {
+            DB_connect.getInst().show_table(this);
+        }
+        private void Table_name_Text_SelectionChanged(object sender, EventArgs e)
+        {
+            Init_list_view();
+        }
+
+        public static DB getInst()
+        {
+            if(mInst == null)
+            {
+                mInst = new DB();
+            }
+            return mInst;
+        }
+            
     }
 }

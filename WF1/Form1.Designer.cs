@@ -29,9 +29,9 @@ namespace WF1
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.trackBar1 = new System.Windows.Forms.TrackBar();
             this.Data_List = new System.Windows.Forms.ListView();
@@ -45,6 +45,7 @@ namespace WF1
             this.엑셀로저장ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.iNFOToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.Table_name_Text = new System.Windows.Forms.ComboBox();
+            this.show_table_Btn = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             this.menuStrip1.SuspendLayout();
@@ -52,17 +53,17 @@ namespace WF1
             // 
             // chart1
             // 
-            chartArea1.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this.chart1.Legends.Add(legend1);
+            chartArea4.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea4);
+            legend4.Name = "Legend1";
+            this.chart1.Legends.Add(legend4);
             this.chart1.Location = new System.Drawing.Point(559, 242);
             this.chart1.Name = "chart1";
             this.chart1.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.EarthTones;
-            series1.ChartArea = "ChartArea1";
-            series1.Legend = "Legend1";
-            series1.Name = "Series1";
-            this.chart1.Series.Add(series1);
+            series4.ChartArea = "ChartArea1";
+            series4.Legend = "Legend1";
+            series4.Name = "Series1";
+            this.chart1.Series.Add(series4);
             this.chart1.Size = new System.Drawing.Size(417, 286);
             this.chart1.TabIndex = 4;
             this.chart1.Text = "chart1";
@@ -164,19 +165,27 @@ namespace WF1
             // Table_name_Text
             // 
             this.Table_name_Text.FormattingEnabled = true;
-            this.Table_name_Text.Items.AddRange(new object[] {
-            "INT",
-            "varchar(50)"});
             this.Table_name_Text.Location = new System.Drawing.Point(47, 164);
             this.Table_name_Text.Name = "Table_name_Text";
             this.Table_name_Text.Size = new System.Drawing.Size(80, 20);
             this.Table_name_Text.TabIndex = 16;
+            // 
+            // show_table_Btn
+            // 
+            this.show_table_Btn.AutoSize = true;
+            this.show_table_Btn.Location = new System.Drawing.Point(45, 139);
+            this.show_table_Btn.Name = "show_table_Btn";
+            this.show_table_Btn.Size = new System.Drawing.Size(69, 12);
+            this.show_table_Btn.TabIndex = 17;
+            this.show_table_Btn.Text = "테이블 보기";
+            this.show_table_Btn.Click += new System.EventHandler(this.show_table_Btn_Click);
             // 
             // DB
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1045, 600);
+            this.Controls.Add(this.show_table_Btn);
             this.Controls.Add(this.Table_name_Text);
             this.Controls.Add(this.Data_Read_Btn);
             this.Controls.Add(this.refresh);
@@ -211,6 +220,7 @@ namespace WF1
         private System.Windows.Forms.ToolStripMenuItem Drop_Table_Btn;
         private System.Windows.Forms.ToolStripMenuItem iNFOToolStripMenuItem1;
         public System.Windows.Forms.ComboBox Table_name_Text;
+        private System.Windows.Forms.Label show_table_Btn;
     }
 }
 

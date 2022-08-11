@@ -42,12 +42,12 @@ namespace WF1
         }
         public void dataRoad(DB from)
         {
+            from.Data_List.Clear();
             from.Data_List.View = View.Details;
             int col_count = 0;
             var item_list = new ListViewItem();
             cmd.Connection = conn;
-            cmd.CommandText = "select * from items order by num asc";
-            //cmd.CommandText = "select * from "+from.Table_name_Text.Text.ToString() + " order by num asc";
+            cmd.CommandText = "select * from "+from.Table_name_Text.Text.ToString();
             cmd.CommandType = System.Data.CommandType.Text;
             data_reader = cmd.ExecuteReader();
             if (data_reader.HasRows)
@@ -114,6 +114,26 @@ namespace WF1
             {
                 Console.WriteLine("테이블 삭제 Error: " + e.Message);
             }
+        }
+        public void show_table(DB from)
+        {
+            from.Table_name_Text.Items.Clear();
+            cmd.Connection = conn;
+            cmd.CommandText = "SHOW TABLES";
+            cmd.CommandType = System.Data.CommandType.Text;
+            data_reader = cmd.ExecuteReader();
+
+            if (data_reader.HasRows)
+            {
+                while (data_reader.Read())
+                {
+                    for (int col_count = 0; col_count < data_reader.FieldCount; col_count++)
+                    {
+                        from.Table_name_Text.Items.Add(data_reader.GetValue(col_count).ToString());
+                    }
+                }
+            }
+            data_reader.Close();
         }
     }
 }
