@@ -18,9 +18,10 @@ namespace WF1
             db_connect.connection_DB();
             DB_connect.getInst().show_table(this);
             Table_name_Text.SelectedIndexChanged += new System.EventHandler(Table_name_Text_SelectionChanged);
+            Init_list_view();
         }
 
-        private void Init_list_view()
+        public void Init_list_view()
         {
             Data_List.BeginUpdate();
             DB_connect.getInst().dataRoad(this);
@@ -70,5 +71,10 @@ namespace WF1
             Init_list_view();
         }
 
+        private void Alter_table_btn_Click(object sender, EventArgs e)
+        {
+            Form3 alter = new Form3(this, Table_name_Text.Text.ToString());
+            alter.Show();
+        }
     }
 }

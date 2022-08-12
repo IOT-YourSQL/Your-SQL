@@ -40,6 +40,7 @@ namespace WF1
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.iNFOToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.Create_Table_Btn = new System.Windows.Forms.ToolStripMenuItem();
+            this.Alter_table_btn = new System.Windows.Forms.ToolStripMenuItem();
             this.Drop_Table_Btn = new System.Windows.Forms.ToolStripMenuItem();
             this.저장ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.save_with_excel_Btn = new System.Windows.Forms.ToolStripMenuItem();
@@ -122,6 +123,7 @@ namespace WF1
             // 
             this.iNFOToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.Create_Table_Btn,
+            this.Alter_table_btn,
             this.Drop_Table_Btn});
             this.iNFOToolStripMenuItem.Name = "iNFOToolStripMenuItem";
             this.iNFOToolStripMenuItem.Size = new System.Drawing.Size(83, 20);
@@ -130,14 +132,21 @@ namespace WF1
             // Create_Table_Btn
             // 
             this.Create_Table_Btn.Name = "Create_Table_Btn";
-            this.Create_Table_Btn.Size = new System.Drawing.Size(138, 22);
+            this.Create_Table_Btn.Size = new System.Drawing.Size(180, 22);
             this.Create_Table_Btn.Text = "테이블 생성";
             this.Create_Table_Btn.Click += new System.EventHandler(this.Create_Table_Btn_Click);
+            // 
+            // Alter_table_btn
+            // 
+            this.Alter_table_btn.Name = "Alter_table_btn";
+            this.Alter_table_btn.Size = new System.Drawing.Size(180, 22);
+            this.Alter_table_btn.Text = "테이블 수정";
+            this.Alter_table_btn.Click += new System.EventHandler(this.Alter_table_btn_Click);
             // 
             // Drop_Table_Btn
             // 
             this.Drop_Table_Btn.Name = "Drop_Table_Btn";
-            this.Drop_Table_Btn.Size = new System.Drawing.Size(138, 22);
+            this.Drop_Table_Btn.Size = new System.Drawing.Size(180, 22);
             this.Drop_Table_Btn.Text = "테이블 드랍";
             this.Drop_Table_Btn.Click += new System.EventHandler(this.Drop_Table_Btn_Click);
             // 
@@ -152,7 +161,7 @@ namespace WF1
             // save_with_excel_Btn
             // 
             this.save_with_excel_Btn.Name = "save_with_excel_Btn";
-            this.save_with_excel_Btn.Size = new System.Drawing.Size(180, 22);
+            this.save_with_excel_Btn.Size = new System.Drawing.Size(138, 22);
             this.save_with_excel_Btn.Text = "엑셀로 저장";
             // 
             // iNFOToolStripMenuItem1
@@ -220,6 +229,7 @@ namespace WF1
         private System.Windows.Forms.ToolStripMenuItem iNFOToolStripMenuItem1;
         public System.Windows.Forms.ComboBox Table_name_Text;
         private System.Windows.Forms.Label show_table_Btn;
+        private System.Windows.Forms.ToolStripMenuItem Alter_table_btn;
     }
 }
 

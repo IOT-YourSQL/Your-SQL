@@ -34,9 +34,9 @@ namespace WF1
         {
 
             System.String db =
-                "Server = localhost;" +
+                "Server = 10.10.20.38;" +
                 "Database = bibidi;" +
-                "Uid = root;" +
+                "Uid = user;" +
                 "Pwd = 1234;";
             return new MySqlConnection(db);
         }
@@ -148,6 +148,21 @@ namespace WF1
                         from.Table_name_Text.Items.Add(data_reader.GetValue(col_count).ToString());
                     }
                 }
+            }
+            data_reader.Close();
+        }
+        
+        public void show_col(Form3 form)
+        {
+            int count = 0;
+            cmd.Connection = conn;
+            cmd.CommandText = "select * from " + form.tbl_name.ToString();
+            cmd.CommandType = System.Data.CommandType.Text;
+            data_reader = cmd.ExecuteReader();
+            while (data_reader.Read())
+            {
+                for(; count < data_reader.FieldCount; count++)
+                    form.col_list.Items.Add(data_reader.GetName(count).ToString());
             }
             data_reader.Close();
         }
